@@ -134,6 +134,8 @@ export const Card = () => {
                 style={{
                   height:
                     portrait && network.password.length > 40 ? '5em' : 'auto',
+                  padding: '0px 5px',
+                  margin: 0,
                 }}
                 maxLength="63"
                 placeholder={t('wifi.password.placeholder')}
@@ -145,7 +147,6 @@ export const Card = () => {
                 onChange={(e) => {
                   setNetwork({ ...network, password: e.target.value });
                 }}
-                style={{ padding: '0px 5px', margin: 0 }}
               />
             </div>
 

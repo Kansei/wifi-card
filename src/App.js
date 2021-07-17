@@ -5,7 +5,7 @@ import './style.css';
 import logo from '../src/images/wifi.png';
 
 function App() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <div className="App">
@@ -28,7 +28,7 @@ function App() {
 
       <p className="tag">
         {t('desc.privacy')}{' '}
-        <a href="https://github.com/Kansei/wifi-card">{t('desc.source')}</a>
+        <a href="https://github.com/Kansei/wifi-qrcode">{t('desc.source')}</a>
       </p>
 
       <Card />
