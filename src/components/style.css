@@ -78,7 +78,7 @@ button#print {
 button#rotate {
   border-radius: 3px;
   color: #fff;
-  background-color: #bebebe;
+  background-color: #000000;
 }
 
 @media print {
