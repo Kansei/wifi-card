@@ -2,6 +2,8 @@
 
 # <img width="32px" src="./public/images/wifi.png"> WiFi Qrcode
 
+<img src="./public/images/main-visual.png">
+
 https://wifi-qrcode.net
 
 WiFiの共有をQRコードで簡単にできます。
