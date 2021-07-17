@@ -10,24 +10,25 @@ function App() {
   return (
     <div className="App">
       <h1>
-        <img alt="icon" src={logo} width="32" height="32" />
+        <img alt="icon" src={logo} height="32" />
         &nbsp; {t('title')}
       </h1>
 
-      <div>
+      {/* <div>
         <label>{t('select')}</label>
         <select onChange={(e) => i18n.changeLanguage(e.target.value)}>
+          <option value="ja">日本語</option>
           <option value="en-US">en-US</option>
           <option value="简体中文">简体中文</option>
           <option value="es">es</option>
         </select>
-      </div>
+      </div> */}
 
       <p className="tag">{t('desc.use')}</p>
 
       <p className="tag">
         {t('desc.privacy')}{' '}
-        <a href="https://github.com/bndw/wifi-card">{t('desc.source')}</a>.
+        <a href="https://github.com/Kansei/wifi-card">{t('desc.source')}</a>
       </p>
 
       <Card />
