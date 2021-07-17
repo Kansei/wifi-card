@@ -1,13 +1,13 @@
 <!-- ![ci](https://github.com/bndw/wifi-card/workflows/ci/badge.svg) -->
 
-# <img width="32px" src="./public/images/wifi.png"> WiFi Card
+# <img width="32px" src="./public/images/wifi.png"> WiFi Qrcode
 
-https://wificard.io
+<!-- https://wificard.io
 
 Print a simple card with your WiFi login details. Tape it to the fridge, keep it in your wallet, etc.
 
 ![wificard](https://user-images.githubusercontent.com/48166553/125853182-49fd361d-5797-4989-afbf-e6a617945be2.gif)
-
+ -->
 ## Running locally
 
 Run the official Docker image on http://localhost:8080
