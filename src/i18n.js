@@ -4,7 +4,7 @@ import { initReactI18next } from 'react-i18next';
 const resources = {
   ja: {
     translation: {
-      title: 'WiFi QRcode',
+      title: 'Wi-Fi QRcode',
       'desc.use':
         'WiFiに接続するために必要な情報が記載された簡単なカード, QRコードを保存、印刷できます。',
       'desc.privacy':

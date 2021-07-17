@@ -2,16 +2,18 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Card } from './components/Card';
 import './style.css';
-import logo from '../src/images/wifi.png';
+import logo from '../src/images/wifi-qrcode-icon.png';
 
 function App() {
   const { t } = useTranslation();
 
   return (
     <div className="App">
-      <h1>
-        <img alt="icon" src={logo} height="32" />
-        &nbsp; {t('title')}
+      <h1 style={{ display: 'flex', alignItems: 'center' }}>
+        <img alt="icon" src={logo} height="40" />
+        <span style={{ marginLeft: 15, fontFamily: 'YuKyokasho' }}>
+          {t('title')}
+        </span>
       </h1>
 
       {/* <div>
