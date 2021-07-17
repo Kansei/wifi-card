@@ -28,6 +28,8 @@ body {
 
 .input-label {
   color: #fff;
+  font-size: 1em;
+  font-weight: bold;
 }
 
 .label-block {
@@ -44,7 +46,7 @@ body {
 textarea {
   background-color: rgb(243, 243, 243);
   /* font-family: 'Source Code Pro', serif; */
-  font-size: 1.3em;
+  font-size: 1em;
   font-weight: bold;
   /* height: 3em; */
   overflow: hidden;
