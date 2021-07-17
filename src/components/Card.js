@@ -5,7 +5,7 @@ import logo from '../../src/images/wifi.png';
 
 import './style.css';
 
-export const Card = () => {
+export const Card = ({ style }) => {
   const firstLoad = useRef(true);
   const [qrvalue, setQrvalue] = useState('');
   const [network, setNetwork] = useState({
@@ -15,6 +15,8 @@ export const Card = () => {
     hidePassword: false,
   });
   const [portrait, setPortrait] = useState(false);
+  const [screenshotMode, setScreenshotMode] = useState(false);
+
   const { t } = useTranslation();
   const escape = (v) => {
     const needsEscape = ['"', ';', ',', ':', '\\'];
@@ -61,7 +63,12 @@ export const Card = () => {
 
   return (
     <div>
-      <fieldset id="print-area">
+      <fieldset
+        id="print-area"
+        style={{
+          borderColor: screenshotMode && 'white',
+        }}
+      >
         <div style={{ textAlign: 'center', marginTop: 30, marginBottom: 30 }}>
           <img alt="icon" src={logo} height="92" />
           <h1 style={{ textAlign: 'center', marginTop: 10 }}>Wi-Fi</h1>
@@ -109,15 +116,23 @@ export const Card = () => {
                 onChange={(e) =>
                   setNetwork({ ...network, ssid: e.target.value })
                 }
-                style={{ padding: '0px 5px', margin: 0 }}
+                style={{
+                  padding: '0px 5px',
+                  margin: 0,
+                  backgroundColor: screenshotMode && 'white',
+                  marginTop: portrait && -3,
+                }}
               />
             </div>
 
             <div
               style={{
-                display: 'flex',
                 flexDirection: portrait ? 'row' : 'column',
                 marginBottom: 10,
+                display:
+                  network.hidePassword || network.encryptionMode === 'nopass'
+                    ? 'none'
+                    : 'flex',
               }}
             >
               <div className="label-block">
@@ -128,14 +143,16 @@ export const Card = () => {
                 id="password"
                 type="text"
                 className={`
-                ${network.hidePassword && 'no-print hidden'}
-                ${network.encryptionMode === 'nopass' && 'hidden'}
-              `}
+                  ${network.hidePassword && 'no-print hidden'}
+                  ${network.encryptionMode === 'nopass' && 'hidden'}
+                `}
                 style={{
                   height:
                     portrait && network.password.length > 40 ? '5em' : 'auto',
                   padding: '0px 5px',
                   margin: 0,
+                  backgroundColor: screenshotMode && 'white',
+                  marginTop: portrait && -3,
                 }}
                 maxLength="63"
                 placeholder={t('wifi.password.placeholder')}
@@ -150,7 +167,10 @@ export const Card = () => {
               />
             </div>
 
-            <div className="no-print">
+            <div
+              className="no-print"
+              style={{ display: screenshotMode && 'none' }}
+            >
               <input
                 type="checkbox"
                 id="hide-password-checkbox"
@@ -170,7 +190,10 @@ export const Card = () => {
               </label>
             </div>
 
-            <div className="no-print">
+            <div
+              className="no-print"
+              style={{ display: screenshotMode && 'none' }}
+            >
               <label>{t('wifi.password.encryption')}:</label>
               <input
                 type="radio"
@@ -223,6 +246,16 @@ export const Card = () => {
         <button id="rotate" onClick={() => setPortrait(!portrait)}>
           {t('button.rotate')}
         </button>
+
+        <button
+          id="screenshot"
+          onClick={() => setScreenshotMode(!screenshotMode)}
+        >
+          {screenshotMode
+            ? t('button.screenshot.disable')
+            : t('button.screenshot')}
+        </button>
+
         <button id="print" onClick={onPrint}>
           {t('button.print')}
         </button>
