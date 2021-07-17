@@ -11,9 +11,7 @@ function App() {
     <div className="App">
       <h1 style={{ display: 'flex', alignItems: 'center' }}>
         <img alt="icon" src={logo} height="40" />
-        <span style={{ marginLeft: 15, fontFamily: 'YuKyokasho' }}>
-          {t('title')}
-        </span>
+        <span style={{ marginLeft: 15 }}>{t('title')}</span>
       </h1>
 
       {/* <div>
