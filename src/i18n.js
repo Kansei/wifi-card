@@ -2,6 +2,30 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
 const resources = {
+  ja: {
+    translation: {
+      title: 'WiFi QRコード',
+      'desc.use':
+        'WiFiに接続するために必要な情報が記載された簡単なカードを印刷できます。',
+      'desc.privacy':
+        'WiFi情報がサーバーに送信されることはありません。このウェブサイトでは、追跡、分析、またはフィンガープリントは使用されていません。',
+      'desc.source': 'ソースコードはコチラ。',
+      'wifi.login': 'WiFi QRコード',
+      'wifi.name': 'SSID',
+      'wifi.name.placeholder': 'ssid',
+      'wifi.password': 'PASS',
+      'wifi.password.placeholder': 'password',
+      'wifi.password.hide': 'プリント時にパスワードを隠す',
+      'wifi.password.encryption': '暗号化方式',
+      'wifi.tip': 'QRコードを読み込むと、WiFiに接続されます',
+      'wifi.alert.name': 'SSIDが空です',
+      'wifi.alert.password.length.5': 'パスワードは５文字以上で設定して下さい',
+      'wifi.alert.password.8': 'パスワードは8文字以上で設定して下さい',
+      'button.rotate': '回転',
+      'button.print': '印刷',
+      select: '言語選択',
+    },
+  },
   'en-US': {
     translation: {
       title: 'WiFi Card',
@@ -82,7 +106,7 @@ const resources = {
 
 i18n.use(initReactI18next).init({
   resources,
-  lng: 'en-US',
+  lng: 'ja',
   interpolation: {
     escapeValue: false,
   },

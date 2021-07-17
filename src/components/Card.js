@@ -1,6 +1,8 @@
 import QRCode from 'qrcode.react';
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import logo from '../../src/images/wifi.png';
+
 import './style.css';
 
 export const Card = () => {
@@ -59,69 +61,93 @@ export const Card = () => {
 
   return (
     <div>
-      <fieldset
-        id="print-area"
-        style={{ maxWidth: portrait ? '350px' : '100%' }}
-      >
-        <h1 style={{ textAlign: portrait ? 'center' : 'left' }}>
-          {t('wifi.login')}
-        </h1>
-
+      <fieldset id="print-area">
+        <div style={{ textAlign: 'center', marginTop: 30, marginBottom: 30 }}>
+          <img alt="icon" src={logo} height="92" />
+          <h1 style={{ textAlign: 'center', marginTop: 10 }}>Wi-Fi</h1>
+        </div>
         <div
           className="details"
-          style={{ flexDirection: portrait ? 'column' : 'row' }}
+          style={{
+            flexDirection: portrait ? 'column' : 'row',
+            alignItems: portrait ? 'center' : 'flex-start',
+            width: '80%',
+            margin: 'auto',
+          }}
         >
           <QRCode
             className="qrcode"
-            style={{ paddingRight: portrait ? '' : '1em' }}
+            style={{
+              marginRight: portrait ? 0 : 25,
+              marginBottom: portrait ? 30 : 0,
+            }}
             value={qrvalue}
-            size={175}
+            size={155}
           />
 
-          <div className="inputs">
-            <label>{t('wifi.name')}</label>
-            <textarea
-              id="ssid"
-              type="text"
-              maxLength="32"
-              placeholder={t('wifi.name.placeholder')}
-              autoComplete="off"
-              autoCorrect="off"
-              autoCapitalize="none"
-              spellCheck="false"
-              value={network.ssid}
-              onChange={(e) => setNetwork({ ...network, ssid: e.target.value })}
-            />
-            <label
-              className={`
-                ${network.hidePassword && 'no-print hidden'}
-                ${network.encryptionMode === 'nopass' && 'hidden'}
-              `}
-            >
-              {t('wifi.password')}
-            </label>
-            <textarea
-              id="password"
-              type="text"
-              className={`
-                ${network.hidePassword && 'no-print hidden'}
-                ${network.encryptionMode === 'nopass' && 'hidden'}
-              `}
+          <div className="inputs" style={{ flex: 1 }}>
+            <div
               style={{
-                height:
-                  portrait && network.password.length > 40 ? '5em' : 'auto',
+                display: 'flex',
+                flexDirection: portrait ? 'row' : 'column',
+                marginBottom: 10,
               }}
-              maxLength="63"
-              placeholder={t('wifi.password.placeholder')}
-              autoComplete="off"
-              autoCorrect="off"
-              autoCapitalize="none"
-              spellCheck="false"
-              value={network.password}
-              onChange={(e) => {
-                setNetwork({ ...network, password: e.target.value });
+            >
+              <div className="label-block">
+                <label className="input-label">{t('wifi.name')}</label>
+              </div>
+              <textarea
+                id="ssid"
+                type="text"
+                maxLength="32"
+                placeholder={t('wifi.name.placeholder')}
+                autoComplete="off"
+                autoCorrect="off"
+                autoCapitalize="none"
+                spellCheck="false"
+                value={network.ssid}
+                onChange={(e) =>
+                  setNetwork({ ...network, ssid: e.target.value })
+                }
+                style={{ padding: '0px 5px', margin: 0 }}
+              />
+            </div>
+
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: portrait ? 'row' : 'column',
+                marginBottom: 10,
               }}
-            />
+            >
+              <div className="label-block">
+                <label className="input-label">{t('wifi.password')}</label>
+              </div>
+
+              <textarea
+                id="password"
+                type="text"
+                className={`
+                ${network.hidePassword && 'no-print hidden'}
+                ${network.encryptionMode === 'nopass' && 'hidden'}
+              `}
+                style={{
+                  height:
+                    portrait && network.password.length > 40 ? '5em' : 'auto',
+                }}
+                maxLength="63"
+                placeholder={t('wifi.password.placeholder')}
+                autoComplete="off"
+                autoCorrect="off"
+                autoCapitalize="none"
+                spellCheck="false"
+                value={network.password}
+                onChange={(e) => {
+                  setNetwork({ ...network, password: e.target.value });
+                }}
+                style={{ padding: '0px 5px', margin: 0 }}
+              />
+            </div>
 
             <div className="no-print">
               <input
@@ -184,7 +210,7 @@ export const Card = () => {
           </div>
         </div>
         <hr />
-        <p>
+        <p style={{ textAlign: 'center' }}>
           <span role="img" aria-label="mobile-phone">
             📸📱
           </span>
