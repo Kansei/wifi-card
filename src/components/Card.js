@@ -14,7 +14,7 @@ export const Card = ({ style }) => {
     password: '',
     hidePassword: false,
   });
-  const [portrait, setPortrait] = useState(false);
+  const [portrait, setPortrait] = useState(true);
   const [screenshotMode, setScreenshotMode] = useState(false);
 
   const { t } = useTranslation();
@@ -70,7 +70,7 @@ export const Card = ({ style }) => {
         }}
       >
         <div style={{ textAlign: 'center', marginTop: 30, marginBottom: 30 }}>
-          <img alt="icon" src={logo} height="92" />
+          <img alt="icon" src={logo} height="80" />
           <h1 style={{ textAlign: 'center', marginTop: 10 }}>Wi-Fi</h1>
         </div>
         <div
@@ -79,6 +79,7 @@ export const Card = ({ style }) => {
             flexDirection: portrait ? 'column' : 'row',
             alignItems: portrait ? 'center' : 'flex-start',
             width: '80%',
+            minWidth: 320,
             margin: 'auto',
           }}
         >
@@ -120,7 +121,7 @@ export const Card = ({ style }) => {
                   padding: '0px 5px',
                   margin: 0,
                   backgroundColor: screenshotMode && 'white',
-                  marginTop: portrait && -3,
+                  marginTop: portrait && -1,
                 }}
               />
             </div>
@@ -152,7 +153,7 @@ export const Card = ({ style }) => {
                   padding: '0px 5px',
                   margin: 0,
                   backgroundColor: screenshotMode && 'white',
-                  marginTop: portrait && -3,
+                  marginTop: portrait && -1,
                 }}
                 maxLength="63"
                 placeholder={t('wifi.password.placeholder')}
