@@ -1,6 +1,6 @@
 <!-- ![ci](https://github.com/bndw/wifi-card/workflows/ci/badge.svg) -->
 
-# <img width="32px" src="./public/images/wifi.png"> WiFi Qrcode
+# WiFi Qrcode
 
 <img src="./public/images/main-visual.png">
 
