@@ -9,7 +9,14 @@ function App() {
 
   return (
     <div className="App">
-      <h1 style={{ display: 'flex', alignItems: 'center' }}>
+      <h1
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          fontSize: 40,
+          marginTop: 80,
+        }}
+      >
         <img alt="icon" src={logo} height="40" />
         <span style={{ marginLeft: 15 }}>{t('title')}</span>
       </h1>
@@ -26,7 +33,7 @@ function App() {
 
       <p className="tag">{t('desc.use')}</p>
 
-      <p className="tag">
+      <p className="note">
         {t('desc.privacy')}{' '}
         <a href="https://github.com/Kansei/wifi-qrcode">{t('desc.source')}</a>
       </p>

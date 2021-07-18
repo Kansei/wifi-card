@@ -118,10 +118,10 @@ export const Card = ({ style }) => {
                   setNetwork({ ...network, ssid: e.target.value })
                 }
                 style={{
-                  padding: '0px 5px',
+                  padding: '2px 5px',
                   margin: 0,
                   backgroundColor: screenshotMode && 'white',
-                  marginTop: portrait && -1,
+                  // marginTop: portrait && -1,
                 }}
               />
             </div>
@@ -150,10 +150,10 @@ export const Card = ({ style }) => {
                 style={{
                   height:
                     portrait && network.password.length > 40 ? '5em' : 'auto',
-                  padding: '0px 5px',
+                  padding: '2px 5px',
                   margin: 0,
                   backgroundColor: screenshotMode && 'white',
-                  marginTop: portrait && -1,
+                  // marginTop: portrait && -1,
                 }}
                 maxLength="63"
                 placeholder={t('wifi.password.placeholder')}
